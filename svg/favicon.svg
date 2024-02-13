@@ -1,0 +1,21 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --path-color: #fff;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --path-color: #000;
+      }
+    }
+  </style>
+
+<path d="M16 16H20V20H16V16Z" fill="var(--path-color)"/>
+<path d="M12 16V12H16V16H12Z" fill="var(--path-color)"/>
+<path d="M12 16V20H8V16H12Z" fill="var(--path-color)"/>
+<path d="M24 8H20V12H24V8Z" fill="var(--path-color)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V32H32V0H0ZM28 28H20V24H24V20H28V28ZM20 20H24V16H28V4H4V20H8V24H4V28H16V24H20V20Z" fill="var(--path-color)"/>
+</svg>

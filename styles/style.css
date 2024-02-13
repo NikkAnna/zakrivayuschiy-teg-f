@@ -6,7 +6,6 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
@@ -17,4 +16,409 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font);
+  background: repeating-linear-gradient(
+    var(--bg-repeating-gradient) 0,
+    var(--bg-repeating-gradient) 2px, 
+    transparent 2px,
+    transparent 4px
+  ),
+  repeating-linear-gradient(
+    to right,
+    var(--bg-repeating-gradient) 0,
+    var(--bg-repeating-gradient) 2px, 
+    transparent 2px,
+    transparent 4px
+  ),
+  linear-gradient(
+    var(--bg-linear-gradient-top) 0%,
+    var(--bg-linear-gradient-top) 0.01%,
+    var(--bg-linear-gradient-bottom) 100%
+  );
+  background-size: cover;
+  color: var(--main-text-color);
+  padding: 100px 0;
+}
+
+@supports (font-variation-settings: normal) {
+  .page {
+    font-weight: var(--text-font-weight);
+  }
+}
+
+.wrapper {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.header {
+  font-family: var(--accent-font);
+  text-align: center;
+  text-transform: uppercase;
+  padding: clamp(7.625rem, 6.4712rem + 4.9231vw, 8.625rem) 0 25px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-text-color);
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);
+}
+
+.header__subtitle {
+  font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
+  margin: 20px 0;
+}
+
+.header__theme-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: baseline;
+
+}
+
+.theme-menu__button {
+  border: none;
+  background: transparent;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 0.88rem;
+  padding: 0;
+  position: relative;
+  transition: opacity 0.3s ease;
+  
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  left: -20px;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes arrow {
+  from {
+    left: -20px;
+  }
+  to {
+    left: -16px;
+  }
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button:focus {
+  opacity: 0.6;
+  outline: none;
+}
+
+.theme-menu__button::after {
+  content: '';
+  height: 2px;
+  background: currentColor; 
+  display: block;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+  margin-top: 2px;
+}
+
+.theme-menu__button:focus-visible::after {
+  content: '';
+  height: 2px;
+  background: currentColor; 
+  display: block;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  margin-top: 2px;
+}
+
+.content {
+  padding: 100px 0 0;
+}
+
+.card {
+  margin: 0 0 50px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-text-color);
+}
+
+.card__title {
+  font-size: 1.13rem;
+  line-height: 1.38rem;
+  font-weight: var(--title-font-weight);
+  padding: 3.5px 10px;
+}
+
+/* ховер на картинки с небольшим скейлом для интерактива */
+
+.card__image-wrapper {
+  border-top: 2px solid var(--main-text-color);
+  border-bottom: 2px solid var(--main-text-color);
+  position: relative;
+  aspect-ratio: 1/1;
+}
+
+.card__image-hashtag {
+  position: absolute;
+  top: 25px;
+  right: clamp(0.8125rem, -0.0529rem + 3.6923vw, 1.5625rem);
+  font-size: 0.88rem;
+  font-family: var(--accent-font);
+  mix-blend-mode: hard-light;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px var(--hashtag-text-stroke), -1px -1px 1px var(--hashtag-text-stroke);
+}
+
+@supports (-webkit-text-stroke: 1px var(--hashtag-text-stroke)) {
+  .card__image-hashtag {
+    -webkit-text-stroke: 1px var(--hashtag-text-stroke);
+    text-shadow: none;
+  }
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.card__image-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1/1;
+}
+
+.card__text-section {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card__textblock {
+  font-size: 1.13rem;
+  line-height: 1.31rem;
+}
+
+.card__like-block {
+  align-self: flex-end;
+  display: flex;
+  align-items: end;
+  gap: 6px;
+}
+
+.card__icon-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--main-text-color);
+  transition: border 0.3s ease;
+}
+
+.card__like-button {
+  padding: 12px 0;
+  border: 2px solid var(--main-text-color);
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  min-width: 8.125rem;
+  justify-content: center;
+}
+
+.like-icon__sparks {
+  opacity: 0;
+}
+
+.like-icon__core {
+  fill: none;
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon:hover .like-icon__core {
+  fill: var(--like-icon-contour);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .like-icon__core {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s linear;
+}
+
+.like-icon__body {
+  fill: none;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .like-icon__body {
+  fill: var(--like-icon-contour);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:active .like-icon__body {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .like-icon__core {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .like-icon__body {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon .like-icon__contour {
+  fill: var(--like-icon-contour);
+  transition: fill 0.1s linear;
+}
+
+.like-icon.is-liked .like-icon__contour {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon__heart {
+  transition: 0.3s ease;
+}
+
+.like-icon.is-liked .like-icon__heart {
+  animation: scaling 0.3s 0.1s ease-in alternate;
+  transform-origin: center;
+}
+
+@keyframes scaling {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.5;
+  }
+}
+
+.like-icon__sparks {
+  transition: 0.3s ease;
+}
+
+.like-icon.is-liked .like-icon__sparks {
+  animation: sparks 0.3s 0.3s ease-in alternate;
+}
+
+@keyframes sparks {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animated-button {
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.animated-button:focus {
+  outline: none;
+  box-shadow: 2px 2px var(--main-text-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.animated-button::after {
+  content: '';
+  position: absolute;
+  display: block;
+  inset: 0;
+  width: 100%;
+  height: 101%;
+  background: var(--main-text-color);
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left 100%;
+}
+
+.animated-button:hover::after {
+  transform: scaleX(1);
+  transition: transform 0.5s ease-in-out; 
+}
+
+.button__text {
+  font-family: var(--accent-font);
+  font-size: 0.88rem;
+  line-height: 90%;
+  position: relative;
+  display: block;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: var(--button-text);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__icon {
+  width: 21px;
+  height: 21px;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: var(--button-text);
+}
+
+.footer__save-button {
+  border: 2px solid var(--main-text-color);
+  padding: 16px 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--bg-color);
+}
+
+
+@media screen and (width <= 375px) {
+
+  .wrapper {
+    --content-width: 375px;
+    min-width: var(--content-width);
+  }
+
+  .footer__icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .footer__save-button {
+    flex-direction: column;
+  }
 }

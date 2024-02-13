@@ -1,1 +1,18 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --main-font: 'Inter', 'Arial', sans-serif;
+  --accent-font: 'Press Start 2P', sans-serif;
+  --text-font-weight: 400;
+  --title-font-weight: 700;
+  --bg-color: #FFF;  
+  --main-text-color: #000;
+  --bg-repeating-gradient: #d3d3d3;
+  --bg-linear-gradient-top: #e7e7e7;
+  --bg-linear-gradient-bottom: #1a1a1a;
+  --content-width: clamp(23.4375rem, 0rem + 100vw, 43.75rem);
+  --hashtag-text-stroke: #FFF;
+  --button-text: #fff;
+  --like-icon-contour: #000;
+  --like-icon-sparks: #FF0000;
+}
+
