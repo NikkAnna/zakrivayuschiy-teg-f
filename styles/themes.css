@@ -6,7 +6,7 @@
 */
 
 :root.theme-light {
-  --bg-color: #FFF;  
+  --bg-color: #FFF;
   --main-text-color: #000;
   --bg-repeating-gradient: #d3d3d3;
   --bg-linear-gradient-top: #e7e7e7;
@@ -18,12 +18,12 @@
 }
 
 :root.theme-dark {
-  --bg-color: #000;  
+  --bg-color: #000;
   --main-text-color: #00CC14;
   --bg-repeating-gradient: #000;
   --bg-linear-gradient-top: #007f0c;
   --bg-linear-gradient-bottom: #004306;
-  --title-font-weight: 800;
+  --title-font-weight: 785;
   --hashtag-text-stroke: #000;
   --button-text: #00CC14;
   --like-icon-contour: #00CC14;
@@ -52,12 +52,12 @@
 @media (prefers-color-scheme: dark) {
 
   :root {
-    --bg-color: #000;  
+    --bg-color: #000;
     --main-text-color: #00CC14;
     --bg-repeating-gradient: #000;
     --bg-linear-gradient-top: #007f0c;
     --bg-linear-gradient-bottom: #004306;
-    --title-font-weight: 800;
+    --title-font-weight: 785;
     --hashtag-text-stroke: #000;
     --button-text: #00CC14;
     --like-icon-contour: #00CC14;
