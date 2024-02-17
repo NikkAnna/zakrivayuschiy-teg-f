@@ -36,6 +36,7 @@
       var(--bg-linear-gradient-bottom) 100%
     );
   background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
@@ -158,16 +159,15 @@
 
 .card__title {
   padding: 3.5px 10px;
-  font-weight: var(--title-font-weight);
   font-size: 1.13rem;
   line-height: 1.38rem;
+  font-variation-settings: "wght" var(--title-font-weight);
 }
 
 .card__image-wrapper {
   position: relative;
   border-top: 2px solid var(--main-text-color);
   border-bottom: 2px solid var(--main-text-color);
-
 }
 
 .card__image-hashtag {
@@ -319,14 +319,6 @@
 .like-icon.is-liked .like-icon__contour {
   fill: var(--like-icon-sparks);
   transition: fill 0.3s 0.06s linear;
-}
-
-.like-icon .like-icon__heart {
-  transition: 0.3s ease;
-}
-
-.like-icon .like-icon__sparks {
-  transition: 0.3s ease;
 }
 
 .like-icon.is-liked .like-icon__sparks {
@@ -483,6 +475,7 @@
 
 .dialog__button {
   justify-content: center;
+  width: 100%;
   height: 2.375rem;
 }
 

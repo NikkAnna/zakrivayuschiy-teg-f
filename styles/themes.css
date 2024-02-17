@@ -47,6 +47,8 @@
     var(--bg-linear-gradient-top),
     var(--bg-linear-gradient-bottom)
   );
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -81,6 +83,8 @@
     var(--bg-linear-gradient-top),
     var(--bg-linear-gradient-bottom)
   );
+  background-attachment: fixed;
+  background-size: cover;
   }
 
 }
