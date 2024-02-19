@@ -18,8 +18,8 @@
   </head>
   <body class="page">
     <header class="header wrapper">
-      <h1 class="header__title">&lt;/HTML&gt;</h1>
-      <p class="header__subtitle">закрывающий тег</p>
+      <a href="#" class="header__logo">&lt;/HTML&gt;</a>
+      <h1 class="header__title">закрывающий тег</h1>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
         <ul class="theme-menu__list">
@@ -54,11 +54,11 @@
               Фритрек и нулевой спринт: Подготовка к работе
             </h2>
             <div class="card__image-wrapper">
-              <p class="card__image-hashtag">&lt;/радость&gt;</p>
+              <span class="card__image-hashtag">&lt;/радость&gt;</span>
               <img
                 src="./images/happy.gif"
                 alt="Рейчел и Фиби из сериала Друзья радостно прыгают"
-                class="card__image happy"
+                class="card__image filter__contrast"
               />
             </div>
             <div class="card__text-section">
@@ -117,12 +117,12 @@
           <article class="card">
             <h2 class="card__title">1 спринт: Я — чистый лист</h2>
             <div class="card__image-wrapper">
-              <p class="card__image-hashtag">&lt;/переживания&gt;</p>
+              <span class="card__image-hashtag">&lt;/переживания&gt;</span>
               <img
                 src="./images/anxiety.gif"
                 alt="Шелдон из сериала Теория большого взрыва дышит в пакетик"
                 loading="lazy"
-                class="card__image anxiety"
+                class="card__image filter__brightness"
               />
             </div>
             <div class="card__text-section">
@@ -184,12 +184,12 @@
           <article class="card">
             <h2 class="card__title">1 спринт: А если не получится?</h2>
             <div class="card__image-wrapper">
-              <p class="card__image-hashtag">&lt;/облегчение&gt;</p>
+              <span class="card__image-hashtag">&lt;/облегчение&gt;</span>
               <img
                 src="./images/solace.gif"
                 alt="Девушка радуется, сидя за компьютером"
                 loading="lazy"
-                class="card__image solace"
+                class="card__image filter__invert"
               />
             </div>
             <div class="card__text-section">
@@ -247,12 +247,12 @@
           <article class="card">
             <h2 class="card__title">2 спринт: Погоня за идеалом</h2>
             <div class="card__image-wrapper">
-              <p class="card__image-hashtag">&lt;/спокойствие&gt;</p>
+              <span class="card__image-hashtag">&lt;/спокойствие&gt;</span>
               <img
                 src="./images/comfort.gif"
                 alt="Котик листает книгу"
                 loading="lazy"
-                class="card__image comfort"
+                class="card__image filter__hue-rotate"
               />
             </div>
             <div class="card__text-section">
@@ -312,12 +312,12 @@
           <article class="card">
             <h2 class="card__title">2 спринт: О тех, кто рядом</h2>
             <div class="card__image-wrapper">
-              <p class="card__image-hashtag">&lt;/любовь&gt;</p>
+              <span class="card__image-hashtag">&lt;/любовь&gt;</span>
               <img
                 src="./images/support.gif"
                 alt="Элиот и Терк из сериала Клиника радостно танцуют"
                 loading="lazy"
-                class="card__image support"
+                class="card__image filter__grayscale-sepia"
               />
             </div>
             <div class="card__text-section">
@@ -379,12 +379,12 @@
           <article class="card">
             <h2 class="card__title">3 спринт: Обходные стратегии</h2>
             <div class="card__image-wrapper">
-              <p class="card__image-hashtag">&lt;/погружение&gt;</p>
+              <span class="card__image-hashtag">&lt;/погружение&gt;</span>
               <img
                 src="./images/deepdive.gif"
                 alt="Обезьяна за компьютером щелкает мышкой"
                 loading="lazy"
-                class="card__image deepdive"
+                class="card__image filter__opacity"
               />
             </div>
             <div class="card__text-section">
@@ -444,12 +444,12 @@
           <article class="card">
             <h2 class="card__title">3 спринт: Когда опускаются руки</h2>
             <div class="card__image-wrapper">
-              <p class="card__image-hashtag">&lt;/забота о себе&gt;</p>
+              <span class="card__image-hashtag">&lt;/забота о себе&gt;</span>
               <img
                 src="./images/care.gif"
                 alt="Дуайт из сериала Офис медитирует в лесу"
                 loading="lazy"
-                class="card__image care"
+                class="card__image filter__blur"
               />
             </div>
             <div class="card__text-section">
@@ -511,12 +511,12 @@
           <article class="card">
             <h2 class="card__title">«Сейчас я здесь»</h2>
             <div class="card__image-wrapper">
-              <p class="card__image-hashtag">&lt;/гордость&gt;</p>
+              <span class="card__image-hashtag">&lt;/гордость&gt;</span>
               <img
                 src="./images/proud.gif"
                 alt="Кен из фильма Барби говорит фразу про крутость"
                 loading="lazy"
-                class="card__image proud"
+                class="card__image filter__saturate"
               />
             </div>
             <div class="card__text-section">
@@ -586,7 +586,7 @@
             <use href="./svg/floppy.svg#floppy" />
           </svg>
           <span class="save-section__button-text button__text">
-            Сохранить на память
+            Сохранить на&nbsp;память
           </span>
         </button>
       </section>
@@ -600,7 +600,7 @@
           </div>
           <form method="dialog" class="dialog__form">
             <button
-              type="button"
+              type="submit"
               class="dialog__button animated-button"
               onclick="window['dialog-id'].close();"
             >

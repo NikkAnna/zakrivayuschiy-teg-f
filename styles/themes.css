@@ -12,6 +12,7 @@
   --bg-linear-gradient-top: #e7e7e7;
   --bg-linear-gradient-bottom: #1a1a1a;
   --title-font-weight: 700;
+  --text-font-weight: 400;
   --hashtag-text-stroke: #FFF;
   --button-text: #FFF;
   --like-icon-contour: #000;
@@ -24,6 +25,7 @@
   --bg-linear-gradient-top: #007f0c;
   --bg-linear-gradient-bottom: #004306;
   --title-font-weight: 785;
+  --text-font-weight: 465;
   --hashtag-text-stroke: #000;
   --button-text: #00CC14;
   --like-icon-contour: #00CC14;
@@ -60,6 +62,7 @@
     --bg-linear-gradient-top: #007f0c;
     --bg-linear-gradient-bottom: #004306;
     --title-font-weight: 785;
+    --text-font-weight: 465;
     --hashtag-text-stroke: #000;
     --button-text: #00CC14;
     --like-icon-contour: #00CC14;

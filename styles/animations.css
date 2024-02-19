@@ -12,3 +12,98 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+@keyframes arrow {
+  from {
+    left: -20px;
+  }
+  to {
+    left: -16px;
+  }
+}
+
+@keyframes scaling {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.5;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes sparks {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.like-icon__sparks {
+  opacity: 0;
+}
+
+.like-icon .like-icon__core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon:hover .like-icon__core {
+  fill: var(--like-icon-contour);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .like-icon__core {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s linear;
+}
+
+.like-icon .like-icon__body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .like-icon__body {
+  fill: var(--like-icon-contour);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:active .like-icon__body {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .like-icon__core {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .like-icon__body {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon .like-icon__contour {
+  fill: var(--like-icon-contour);
+  transition: fill 0.1s linear;
+}
+
+.like-icon.is-liked .like-icon__contour {
+  fill: var(--like-icon-sparks);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .like-icon__sparks {
+  animation: sparks 0.3s 0.3s ease-in alternate;
+}
+
+.like-icon.is-liked {
+  animation: scaling 0.3s 0.1s ease-in alternate;
+}

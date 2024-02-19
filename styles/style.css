@@ -54,31 +54,39 @@
 
 .header {
   border: 2px solid var(--main-text-color);
-  padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 25px;
+  padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 20px;
   font-family: var(--accent-font);
   text-align: center;
   text-transform: uppercase;
   background: var(--bg-color);
 }
 
-.header__title {
+.header__logo {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-decoration: none;
+  cursor: default;
 }
 
-.header__subtitle {
-  margin: 20px 0;
+.header__logo:focus,
+.header__logo:focus-visible {
+  outline: none;
+}
+
+.header__title {
+  margin: 20px 0 25px;
+  font-weight: normal;
   font-size: clamp(0.875rem, 0.7143rem + 0.8036vw, 1.4375rem);
 }
 
 .header__theme-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: clamp(9.625rem, 6.0819rem + 15.1174vw, 19.6875rem) 1fr;
 }
 
 .theme-menu__list {
   display: flex;
   flex-direction: column;
+  grid-column: 2;
   align-items: baseline;
   gap: 0.5rem;
 }
@@ -102,22 +110,13 @@
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
+  top: 0;
   left: -20px;
   animation: arrow 0.5s ease-in-out infinite alternate;
 }
 
-@keyframes arrow {
-  from {
-    left: -20px;
-  }
-  to {
-    left: -16px;
-  }
-}
-
 .theme-menu__button:hover {
   opacity: 0.6;
-  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:focus {
@@ -137,14 +136,7 @@
 }
 
 .theme-menu__button:focus-visible::after {
-  content: "";
-  display: block;
-  height: 0.125rem;
-  margin: 0.125rem 0 0;
-  background: currentColor;
-  transition: transform 0.3s ease;
   transform: scaleX(1);
-  transform-origin: left;
 }
 
 .content {
@@ -190,6 +182,13 @@
   }
 }
 
+@supports (text-stroke: 1px var(--hashtag-text-stroke)) {
+  .card__image-hashtag {
+    text-shadow: none;
+    text-stroke: 1px var(--hashtag-text-stroke);
+  }
+}
+
 .card__image {
   display: block;
   width: 100%;
@@ -199,35 +198,35 @@
   aspect-ratio: 1/1;
 }
 
-.happy {
+.filter__contrast {
   filter: contrast(130%);
 }
 
-.anxiety {
+.filter__brightness {
   filter: brightness(120%);
 }
 
-.solace {
+.filter__invert {
   filter: invert(30%);
 }
 
-.comfort {
+.filter__hue-rotate {
   filter: hue-rotate(0.1turn);
 }
 
-.support {
+.filter__grayscale-sepia {
   filter: grayscale(20%) sepia(0.2);
 }
 
-.deepdive {
+.filter__opacity {
   filter: opacity(80%);
 }
 
-.care {
+.filter__blur {
   filter: blur(2px);
 }
 
-.proud {
+.filter__saturate {
   filter: saturate(120%);
 }
 
@@ -241,6 +240,7 @@
 .card__textblock {
   font-size: 1.13rem;
   line-height: 1.31rem;
+  font-variation-settings: "wght" var(--text-font-weight);
 }
 
 .card__like-block {
@@ -256,6 +256,7 @@
   border: 2px solid transparent;
   padding: 0;
   background: transparent;
+  transition: border 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -264,93 +265,6 @@
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--main-text-color);
-  transition: border 0.3s ease;
-}
-
-.like-icon__sparks {
-  opacity: 0;
-}
-
-.like-icon .like-icon__core {
-  fill: transparent;
-  transition: fill 0.3s 0.03s linear;
-}
-
-.like-icon:hover .like-icon__core {
-  fill: var(--like-icon-contour);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:active .like-icon__core {
-  fill: var(--like-icon-sparks);
-  transition: fill 0.3s linear;
-}
-
-.like-icon .like-icon__body {
-  fill: transparent;
-  transition: fill 0.3s linear;
-}
-
-.like-icon:hover .like-icon__body {
-  fill: var(--like-icon-contour);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon:active .like-icon__body {
-  fill: var(--like-icon-sparks);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon.is-liked .like-icon__core {
-  fill: var(--like-icon-sparks);
-  transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked .like-icon__body {
-  fill: var(--like-icon-sparks);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon .like-icon__contour {
-  fill: var(--like-icon-contour);
-  transition: fill 0.1s linear;
-}
-
-.like-icon.is-liked .like-icon__contour {
-  fill: var(--like-icon-sparks);
-  transition: fill 0.3s 0.06s linear;
-}
-
-.like-icon.is-liked .like-icon__sparks {
-  animation: sparks 0.3s 0.3s ease-in;
-}
-
-.like-icon.is-liked {
-  animation: scaling 0.3s 0.1s ease-in;
-}
-
-@keyframes scaling {
-  0% {
-    scale: 1;
-  }
-  50% {
-    scale: 1.5;
-  }
-  100% {
-    scale: 1;
-  }
-}
-
-@keyframes sparks {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 .card__like-button {
@@ -371,7 +285,6 @@
 .animated-button:focus {
   box-shadow: 2px 2px var(--main-text-color);
   outline: none;
-  transition: box-shadow 0.3s ease;
 }
 
 .animated-button::after {
@@ -382,13 +295,12 @@
   width: 100%;
   height: 101%;
   background: var(--main-text-color);
-  transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: left 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
 .animated-button:hover::after {
-  transition: transform 0.5s ease-in-out;
   transform: scaleX(1);
 }
 
@@ -442,7 +354,7 @@
 .dialog__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
   width: clamp(16.0625rem, 15.2702rem + 3.3803vw, 18.3125rem);
   min-height: 8.5625rem;
 }
@@ -471,12 +383,14 @@
   font-family: var(--accent-font);
   font-size: 0.88rem;
   line-height: 150%;
+  text-transform: uppercase;
 }
 
 .dialog__button {
   justify-content: center;
   width: 100%;
   height: 2.375rem;
+  text-transform: uppercase;
 }
 
 @media screen and (width <= 375px) {
@@ -484,8 +398,12 @@
     width: 100%;
   }
 
-  .header__title {
+  .header__logo {
     font-size: clamp(2.6875rem, 0.5057rem + 10.9091vw, 3.0625rem);
+  }
+
+  .header__theme-menu {
+    grid-template-columns: clamp(7.8125rem, -2.733rem + 52.7273vw, 9.625rem) 1fr;
   }
 
   .save-section__icon {
